@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>El Chacarero</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <div class="contenedor">
+        <div class="logo">
+            <img src="imagenes/icono-removebg-preview.png" alt="Logo">
+            <h1>El Chacarero</h1>
+        </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Tienda</a>
+            <a href="#historia">Historia</a>
+            <a href="#carrito">🛒 (<span id="num-carrito">0</span>)</a>
+        </nav>
+    </div>
+</header>
+
+<!-- INICIO -->
+<section id="inicio" class="banner">
+    <div class="overlay"></div>
+
+    <div class="contenido-banner">
+        <h2>El sabor del campo en tu mesa</h2>
+        <p>Ajíes 🌶️, quesos 🧀 y café ☕ artesanales</p>
+        <a href="#catalogo" class="btn-banner">Comprar ahora</a>
+    </div>
+</section>
+
+<!-- CATÁLOGO -->
+<section id="catalogo">
+    <h2>Tienda</h2>
+
+    <input type="text" id="buscador" placeholder="Buscar..." onkeyup="filtrar()">
+
+    <select id="filtro" onchange="filtrar()">
+        <option value="todos">Todos</option>
+        <option value="aji">Ajíes</option>
+        <option value="queso">Quesos</option>
+        <option value="cafe">Café</option>
+    </select>
+
+    <div class="productos" id="lista-productos"></div>
+</section>
+
+<!-- CARRITO -->
+<section id="carrito" class="contenedor-seccion">
+    <div class="carrito-box">
+        <h2>🛒 Tu Carrito</h2>
+        <div id="carrito-items"></div>
+        <div class="total-container">
+            <h3>Total: $<span id="total">0</span></h3>
+        </div>
+
+        <div class="datos-compra">
+            <h3>Datos de compra</h3>
+            <input type="text" id="nombre" placeholder="Tu Nombre">
+            <input type="text" id="direccion" placeholder="Dirección de entrega">
+            <input type="email" id="email" placeholder="Tu Correo Electrónico"> </div>
+
+        <div class="info-pago">
+            <h3>Pago por transferencia</h3>
+            <p><strong>Banco Pichincha</strong> - Cuenta: 1234567890</p>
+        </div>
+
+        <div class="botones-carrito">
+            <button onclick="comprar()" class="btn-comprar">Finalizar Compra</button>
+            <button onclick="vaciarCarrito()" class="btn-vaciar">Vaciar carrito</button>
+        </div>
+    </div>
+</section>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/593XXXXXXXXX" class="whatsapp" target="_blank">
+    💬
+</a>
+
+
+<!-- HISTORIA -->
+<section id="historia">
+    <h2>Nuestra Historia</h2>
+    <p>
+        Somos un emprendimiento familiar dedicado a la producción artesanal de ajíes, 
+        quesos y café. Cada producto está hecho con ingredientes naturales y mucho amor, 
+        llevando el auténtico sabor del campo directamente a tu mesa.
+    </p>
+</section>
+<script src="script.js"></script>
+</body>
+</html> 
