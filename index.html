@@ -60,16 +60,28 @@
         </div>
 
         <div class="datos-compra">
-            <h3>Datos de compra</h3>
-            <input type="text" id="nombre" placeholder="Tu Nombre">
-            <input type="text" id="direccion" placeholder="Dirección de entrega">
-            <input type="email" id="email" placeholder="Tu Correo Electrónico"> </div>
+            <h3>Datos de Facturación</h3>
+            <p style="font-size: 0.9em; color: #666; margin-bottom: 15px;">Por favor, completa todos los campos para procesar tu pedido.</p>
+            
+            <div class="facturacion-grid">
+                <input type="text" id="nombre" placeholder="Nombre y Apellido" required>
+                <input type="text" id="cedula" placeholder="Cédula o RUC" required>
+                <input type="text" id="direccion" placeholder="Dirección exacta (Calle y Nro)" required>
+                <input type="text" id="ciudad" placeholder="Ciudad / Provincia" required>
+                <input type="text" id="postal" placeholder="Código Postal">
+                <input type="email" id="email" placeholder="Correo Electrónico" required>
+                <input type="tel" id="telefono" placeholder="Número de Teléfono" required>
+            </div>
+        </div>
 
         <div class="info-pago">
             <h3>Pago por transferencia</h3>
-            <p><strong>Banco Pichincha</strong> - Cuenta: 1234567890</p>
+            <p><strong>Banco Pichincha</strong> - Cuenta: 2207315730</p>
+            <p><strong>Titular:</strong> - Pedro Salgado</p>
+            <p><strong>Cooperativa jep</strong> - Cuenta: 406013491107</p>
+            <p><strong>Titular:</strong> - MariaAugusta Guillen Paredes</p>
         </div>
-
+        <div id="mensaje-error" style="color: #e74c3c; font-weight: bold; margin-bottom: 15px; min-height: 20px;"></div>
         <div class="botones-carrito">
             <button onclick="comprar()" class="btn-comprar">Finalizar Compra</button>
             <button onclick="vaciarCarrito()" class="btn-vaciar">Vaciar carrito</button>
@@ -78,7 +90,7 @@
 </section>
 
 <!-- WHATSAPP -->
-<a href="https://wa.me/593XXXXXXXXX" class="whatsapp" target="_blank">
+<a href="https://wa.me/5930963202392" class="whatsapp" target="_blank">
     💬
 </a>
 

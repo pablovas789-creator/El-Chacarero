@@ -89,47 +89,99 @@ nav a:hover {
 
 /* PRODUCTOS */
 .productos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
     padding: 20px;
+    align-items: stretch; /* Esto estira todas las tarjetas a la misma altura */
 }
 
 .producto {
-    position: relative;
     background: white;
-    width: 220px;
     border-radius: 10px;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido en columna */
     overflow: hidden;
-    box-shadow: 0 0 10px gray;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    height: 100%; /* Importante para que el flex funcione */
 }
 
+.imagen-contenedor {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Misma altura que la imagen */
+    overflow: hidden;
+}
 .producto img {
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 100%; /* Ocupa todo el contenedor */
+    object-fit: contain; /* Muestra la imagen completa sin recortar */
+    background-color: #f9f9f9; /* Fondo gris muy suave para imágenes con transparencia */
 }
 
+.producto h3 {
+    font-size: 15px;
+    padding: 15px 15px 5px 15px;
+    margin: 0;
+    min-height: 75px; /* Ajusta este valor según el nombre más largo */
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente si es corto */
+}
+
+.producto p {
+    padding: 0 15px 15px 15px;
+    margin: 0;
+    font-weight: bold;
+    color: #8b0000;
+}  
+
 .producto button {
-    position: relative;
-    z-index: 2;
+    margin-top: auto; 
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* HOVER DESCRIPCIÓN 🔥 */
 .descripcion {
     position: absolute;
-    bottom: 0;
-    background: rgba(0,0,0,0.8);
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.85); /* Fondo oscuro semi-transparente */
     color: white;
     width: 100%;
-    height: 100%;
+    height: 100%; /* Cubre SOLO el contenedor de la imagen */
     opacity: 0;
-    padding: 10px;
-    transition: 0.3s;
-    pointer-events: none; 
-    height: 50%
+    padding: 20px;
+    box-sizing: border-box;
+    transition: 0.4s ease-in-out;
+    pointer-events: none; /* Permite hacer click en el botón de abajo */
+    
+    /* Centrado vertical y horizontal del texto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    
+    /* Respetar saltos de línea \n */
+    white-space: pre-line; 
+    font-size: 14px;
+    line-height: 1.5;
 }
 
+.producto button:hover {
+    background: #218838;
+}
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
 .producto:hover .descripcion {
     opacity: 1;
 }
@@ -225,5 +277,46 @@ section {
 @media(max-width:768px){
     .banner {
         background-attachment: scroll;
+    }
+}
+
+@media(max-width:600px){
+    .productos {
+        flex-direction: column;
+        align-items: center;
+    }
+    .producto {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.facturacion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    gap: 15px;
+}
+
+#carrito input {
+    width: 100%; /* Ocupa todo el espacio de su celda */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+#mensaje-error {
+    text-align: center;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* En móviles, que los inputs ocupen todo el ancho */
+@media (max-width: 600px) {
+    .facturacion-grid {
+        grid-template-columns: 1fr;
     }
 }
