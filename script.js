@@ -268,7 +268,7 @@ function mostrarProductos(lista) {
 
         contenedor.innerHTML += `
             <div class="producto">
-                <div class="imagen-contenedor" style="position:relative;">
+                <div class="imagen-contenedor" style="position:relative;" onclick="this.classList.toggle('mostrar-desc')">
                     <img src="${p.img}" alt="${p.nombre}">
                     <div class="descripcion">
                         ${p.descripcion} 
@@ -504,19 +504,12 @@ function cargarCarruselesInicio() {
     const contenedorDestacados = document.getElementById("carrusel-destacados");
     if (!contenedorDestacados) return;
 
-    // Aquí elegimos las posiciones exactas de tu lista para dar variedad:
-    // 0: Ají Maracuyá | 16: Mix Quesos | 19: Café Medio 400g 
-    // 14: Encurtido Jalapeño | 11: Ají Seco 30g | 30: Café Grano Oscuro
-    const posicionesElegidas = [0, 16, 19, 14, 11, 30]; 
-    
-    // Extraemos esos productos específicos
-    const favoritos = posicionesElegidas.map(indice => productos[indice]);
-
+    // Aquí es donde pones el código que me pasaste 👇
     const generarHTML = (p) => {
         const nombreLimpio = p.nombre.replace(/\n/g, "<br>");
         return `
             <div class="producto">
-                <div class="imagen-contenedor" style="position:relative;">
+                <div class="imagen-contenedor" style="position:relative;" onclick="this.classList.toggle('mostrar-desc')">
                     <img src="${p.img}" alt="${p.nombre}">
                     <div class="descripcion">${p.descripcion}</div>
                 </div>
@@ -527,7 +520,8 @@ function cargarCarruselesInicio() {
         `;
     };
 
-    // Inyectamos el HTML generado
+    const posicionesElegidas = [0, 16, 19, 14, 11, 30]; 
+    const favoritos = posicionesElegidas.map(indice => productos[indice]);
     contenedorDestacados.innerHTML = favoritos.map(generarHTML).join('');
 }
 
