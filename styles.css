@@ -494,10 +494,16 @@ button.carrusel-control.next { right: 5px; }
     }
 
     /* --- 3. SECCIÓN CATÁLOGO / TIENDA --- */
-    #catalogo {
-        display: block !important;
-        padding-top: 180px !important; /* Espacio extra para bajar todo el contenido */
-        background-color: #f5f5f5; /* Mantiene el color de fondo general */
+    #catalogo, #carrito, #facturacion {
+        /* Eliminamos el 'display: block !important' para que el JS del menú vuelva a funcionar */
+        padding-top: 180px !important; /* Espacio extra para que el header rojo no tape NINGUNA sección */
+        background-color: #f5f5f5;
+    }
+
+    /* 🔥 NUEVO: Clase activa para mostrar la descripción al tocar la imagen en móvil */
+    .imagen-contenedor.mostrar-desc .descripcion {
+        opacity: 1 !important;
+        z-index: 15 !important;
     }
 
     .contenedor-tienda {
@@ -602,6 +608,16 @@ button.carrusel-control.next { right: 5px; }
         overflow-y: auto !important; /* Activa la barra de desplazamiento */
         -webkit-overflow-scrolling: touch !important; /* Scroll suave para iOS */
         pointer-events: auto !important; /* Deja interactuar con el dedo */
+
+        /* ESTO ASEGURA QUE INICIE OCULTO EN MÓVIL HASTA TOCAR */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* 🔥 ESTA ES LA CLASE NUEVA QUE ACTIVA EL JS AL TOCAR */
+    .imagen-contenedor.mostrar-desc .descripcion {
+        opacity: 1 !important;
+        z-index: 15 !important;
     }
 
     .producto:active .descripcion, 
