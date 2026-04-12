@@ -438,5 +438,130 @@ function vaciarCarrito() {
     }
 }
 
+function mostrarSeccion(seccionId) {
+    // 1. Seleccionamos todas las secciones con la clase 'seccion-pagina'
+    const secciones = document.querySelectorAll('.seccion-pagina');
+    
+    // 2. Las ocultamos todas
+    secciones.forEach(sec => {
+        sec.style.display = 'none';
+    });
+
+    // 3. Mostramos solo la que necesitamos
+    const seccionAMostrar = document.getElementById(seccionId);
+    if (seccionId === 'inicio') {
+        seccionAMostrar.style.display = 'flex'; // El banner usa flex
+    } else {
+        seccionAMostrar.style.display = 'block';
+    }
+
+    // Opcional: Desplazar al inicio de la página al cambiar de pestaña
+    window.scrollTo(0, 0);
+}
+
+// Función específica para ir a la facturación
+function mostrarPasoPago() {
+    if (carrito.length === 0) {
+        mostrarError("❌ El carrito está vacío.");
+        return;
+    }
+    mostrarSeccion('facturacion');
+}
+
+let indiceCarruselFotos = 0;
+
+function moverCarruselFotos(direccion) {
+    const contenedor = document.getElementById("carrusel-lifestyle");
+    const totalSlides = contenedor.querySelectorAll(".slide-foto").length;
+
+    indiceCarruselFotos += direccion;
+
+    // Si nos pasamos de la última foto, volvemos a la primera
+    if (indiceCarruselFotos >= totalSlides) {
+        indiceCarruselFotos = 0;
+    } 
+    // Si retrocedemos desde la primera, vamos a la última
+    else if (indiceCarruselFotos < 0) {
+        indiceCarruselFotos = totalSlides - 1;
+    }
+
+    // Movemos el contenedor usando un porcentaje (-100%, -200%, etc.)
+    const desplazamiento = -(indiceCarruselFotos * 100);
+    contenedor.style.transform = `translateX(${desplazamiento}%)`;
+}
+
+// Opcional: Hacer que el carrusel se mueva solo cada 5 segundos
+setInterval(() => {
+    moverCarruselFotos(1);
+}, 5000);
+
+let posicionesCarruseles = {
+    'carrusel-destacados': 0
+};
+
+// 1. Función para inyectar los productos en el HTML
+function cargarCarruselesInicio() {
+    const contenedorDestacados = document.getElementById("carrusel-destacados");
+    if (!contenedorDestacados) return;
+
+    // Aquí elegimos las posiciones exactas de tu lista para dar variedad:
+    // 0: Ají Maracuyá | 16: Mix Quesos | 19: Café Medio 400g 
+    // 14: Encurtido Jalapeño | 11: Ají Seco 30g | 30: Café Grano Oscuro
+    const posicionesElegidas = [0, 16, 19, 14, 11, 30]; 
+    
+    // Extraemos esos productos específicos
+    const favoritos = posicionesElegidas.map(indice => productos[indice]);
+
+    const generarHTML = (p) => {
+        const nombreLimpio = p.nombre.replace(/\n/g, "<br>");
+        return `
+            <div class="producto">
+                <div class="imagen-contenedor" style="position:relative;">
+                    <img src="${p.img}" alt="${p.nombre}">
+                    <div class="descripcion">${p.descripcion}</div>
+                </div>
+                <h3>${nombreLimpio}</h3>
+                <p>$${p.precio.toFixed(2)}</p>
+                <button onclick="agregarCarrito(${p.id})">Agregar al carrito</button>
+            </div>
+        `;
+    };
+
+    // Inyectamos el HTML generado
+    contenedorDestacados.innerHTML = favoritos.map(generarHTML).join('');
+}
+
+// 2. Función para deslizar las tarjetas al hacer clic en las flechas
+function moverCarrusel(id, direccion) {
+    const contenedor = document.getElementById(id);
+    if (!contenedor) return;
+    
+    const totalElementos = contenedor.children.length;
+    // Ancho de la tarjeta (250px) + Espacio entre ellas (25px según tu CSS) = 275px
+    const anchoElemento = 275; 
+    
+    // Calculamos cuántos productos caben en la pantalla actual
+    const elementosVisibles = Math.floor(contenedor.parentElement.offsetWidth / anchoElemento) || 1;
+    
+    // Tope máximo para no mostrar espacios en blanco
+    const maxPosicion = totalElementos - elementosVisibles;
+
+    posicionesCarruseles[id] += direccion;
+
+    // Control de límites
+    if (posicionesCarruseles[id] > maxPosicion) {
+        posicionesCarruseles[id] = 0; // Vuelve al inicio si se pasa del final
+    } else if (posicionesCarruseles[id] < 0) {
+        posicionesCarruseles[id] = maxPosicion > 0 ? maxPosicion : 0; // Va al final si retrocede desde el inicio
+    }
+
+    // Desplazamiento exacto en píxeles
+    const desplazamiento = -(posicionesCarruseles[id] * anchoElemento);
+    contenedor.style.transform = `translateX(${desplazamiento}px)`;
+}
+
+// Ejecutar la carga de productos inmediatamente al cargar la página
+cargarCarruselesInicio();
+
 mostrarProductos(productos);
 actualizarCarrito();
