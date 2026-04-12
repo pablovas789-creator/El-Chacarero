@@ -15,95 +15,112 @@
             <h1>El Chacarero</h1>
         </div>
         <nav>
-            <a href="#inicio">Inicio</a>
-            <a href="#catalogo">Tienda</a>
-            <a href="#historia">Historia</a>
-            <a href="#carrito">🛒 (<span id="num-carrito">0</span>)</a>
+            <a href="javascript:void(0)" onclick="mostrarSeccion('inicio')">Inicio</a>
+            <a href="javascript:void(0)" onclick="mostrarSeccion('catalogo')">Tienda</a>
+            <a href="javascript:void(0)" onclick="mostrarSeccion('carrito')">🛒 (<span id="num-carrito">0</span>)</a>
         </nav>
     </div>
 </header>
 
-<!-- INICIO -->
-<section id="inicio" class="banner">
-    <div class="overlay"></div>
+<section id="inicio" class="seccion-pagina">
+    <div class="banner">
+        <div class="overlay"></div>
+        <div class="contenido-banner">
+            <h2>El sabor del campo en tu mesa</h2>
+            <p>Ajíes 🌶️, quesos 🧀 y café ☕ artesanales</p>
+            <a href="javascript:void(0)" onclick="mostrarSeccion('catalogo')" class="btn-banner">Explorar Tienda</a>
+        </div>
+    </div>
 
-    <div class="contenido-banner">
-        <h2>El sabor del campo en tu mesa</h2>
-        <p>Ajíes 🌶️, quesos 🧀 y café ☕ artesanales</p>
-        <a href="#catalogo" class="btn-banner">Comprar ahora</a>
+    <div class="seccion-carrusel-fotos">
+            <div class="carrusel-wrapper-fotos">
+                <button class="carrusel-control-fotos prev" onclick="moverCarruselFotos(-1)">&#10094;</button>
+                
+                <div class="carrusel-container-fotos" id="carrusel-lifestyle">
+                    <img src="imagenes/carrusel/carrusel1.jpeg" alt="Picada con vino y queso" class="slide-foto">
+                    <img src="imagenes/carrusel/carrusel2.jpeg" alt="Ají fresco en la mesa" class="slide-foto">
+                    <img src="imagenes/carrusel/carrusel3.jpeg" alt="Preparando el café" class="slide-foto">
+                    <img src="imagenes/carrusel/carrusel4.jpeg" alt="Preparando el café" class="slide-foto">
+                </div>
+                
+                <button class="carrusel-control-fotos next" onclick="moverCarruselFotos(1)">&#10095;</button>
+            </div>
+        </div>
+
+    <div class="contenedor-inicio-dinamico">
+        <div class="seccion-carrusel">
+            <h2 class="titulo-inicio">Favoritos de la Casa ⭐</h2>
+            <div class="carrusel-wrapper">
+                <button class="carrusel-control prev" onclick="moverCarrusel('carrusel-destacados', -1)">&#10094;</button>
+                <div class="carrusel-container" id="carrusel-destacados"></div>
+                <button class="carrusel-control next" onclick="moverCarrusel('carrusel-destacados', 1)">&#10095;</button>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div id="historia" class="contenedor-seccion">
+        <h2>Nuestra Historia</h2>
+        <p>Somos un emprendimiento familiar dedicado a la producción artesanal. Llevamos el auténtico sabor del campo directamente a tu mesa con amor y tradición.</p>
     </div>
 </section>
 
-<!-- CATÁLOGO -->
-<section id="catalogo">
-    <h2>Tienda</h2>
-
-    <input type="text" id="buscador" placeholder="Buscar..." onkeyup="filtrar()">
-
-    <select id="filtro" onchange="filtrar()">
-        <option value="todos">Todos</option>
-        <option value="aji">Ajíes</option>
-        <option value="queso">Quesos</option>
-        <option value="cafe">Café</option>
-    </select>
-
-    <div class="productos" id="lista-productos"></div>
+<section id="catalogo" class="seccion-pagina" style="display:none;">
+    <div class="contenedor-tienda">
+        <h2>Tienda</h2>
+        <div class="filtros-container">
+            <input type="text" id="buscador" placeholder="Buscar sabor..." onkeyup="filtrar()">
+            <select id="filtro" onchange="filtrar()">
+                <option value="todos">Todos los productos</option>
+                <option value="aji">Ajíes</option>
+                <option value="queso">Quesos</option>
+                <option value="cafe">Café</option>
+            </select>
+        </div>
+        <div class="productos" id="lista-productos"></div>
+    </div>
 </section>
 
-<!-- CARRITO -->
-<section id="carrito" class="contenedor-seccion">
+<section id="carrito" class="seccion-pagina" style="display:none;">
     <div class="carrito-box">
         <h2>🛒 Tu Carrito</h2>
         <div id="carrito-items"></div>
         <div class="total-container">
-            <h3>Total: $<span id="total">0</span></h3>
+            <h3>Total: $<span id="total">0.00</span></h3>
         </div>
-
-        <div class="datos-compra">
-            <h3>Datos de Facturación</h3>
-            <p style="font-size: 0.9em; color: #666; margin-bottom: 15px;">Por favor, completa todos los campos para procesar tu pedido.</p>
-            
-            <div class="facturacion-grid">
-                <input type="text" id="nombre" placeholder="Nombre y Apellido" required>
-                <input type="text" id="cedula" placeholder="Cédula o RUC" required>
-                <input type="text" id="direccion" placeholder="Dirección exacta (Calle y Nro)" required>
-                <input type="text" id="ciudad" placeholder="Ciudad / Provincia" required>
-                <input type="text" id="postal" placeholder="Código Postal">
-                <input type="email" id="email" placeholder="Correo Electrónico" required>
-                <input type="tel" id="telefono" placeholder="Número de Teléfono" required>
-            </div>
-        </div>
-
-        <div class="info-pago">
-            <h3>Pago por transferencia</h3>
-            <p><strong>Banco Pichincha</strong> - Cuenta: 2207315730</p>
-            <p><strong>Titular:</strong> - Pedro Salgado</p>
-            <p><strong>Cooperativa jep</strong> - Cuenta: 406013491107</p>
-            <p><strong>Titular:</strong> - MariaAugusta Guillen Paredes</p>
-        </div>
-        <div id="mensaje-error" style="color: #e74c3c; font-weight: bold; margin-bottom: 15px; min-height: 20px;"></div>
         <div class="botones-carrito">
-            <button onclick="comprar()" class="btn-comprar">Finalizar Compra</button>
-            <button onclick="vaciarCarrito()" class="btn-vaciar">Vaciar carrito</button>
+            <button onclick="irAFacturacion()" class="btn-comprar">Continuar al Pago</button>
+            <button onclick="vaciarCarrito()" class="btn-vaciar">Vaciar</button>
         </div>
     </div>
 </section>
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/593987180275" class="whatsapp" target="_blank">
-    💬
-</a>
-
-
-<!-- HISTORIA -->
-<section id="historia">
-    <h2>Nuestra Historia</h2>
-    <p>
-        Somos un emprendimiento familiar dedicado a la producción artesanal de ajíes, 
-        quesos y café. Cada producto está hecho con ingredientes naturales y mucho amor, 
-        llevando el auténtico sabor del campo directamente a tu mesa.
-    </p>
+<section id="facturacion" class="seccion-pagina" style="display:none;">
+    <div class="carrito-box">
+        <h2>📋 Datos de Facturación</h2>
+        <div class="facturacion-grid">
+            <input type="text" id="nombre" placeholder="Nombre y Apellido">
+            <input type="text" id="cedula" placeholder="Cédula o RUC">
+            <input type="text" id="direccion" placeholder="Dirección exacta">
+            <input type="text" id="ciudad" placeholder="Ciudad / Provincia">
+            <input type="email" id="email" placeholder="Correo Electrónico">
+            <input type="tel" id="telefono" placeholder="WhatsApp / Teléfono">
+        </div>
+        <div class="info-pago">
+            <h3>Pago por Transferencia</h3>
+            <p><strong>Banco Pichincha:</strong> 2207315730 (P. Salgado)</p>
+        </div>
+        <div id="mensaje-error"></div>
+        <div class="botones-carrito">
+            <button onclick="comprar()" class="btn-comprar">Finalizar Pedido</button>
+            <button onclick="mostrarSeccion('carrito')" class="btn-vaciar">Volver</button>
+        </div>
+    </div>
 </section>
+
+<a href="https://wa.me/593987180275" class="whatsapp" target="_blank">💬</a>
+
 <script src="script.js"></script>
 </body>
-</html> 
+</html>
