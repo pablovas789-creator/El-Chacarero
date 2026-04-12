@@ -12,7 +12,7 @@ header {
     backdrop-filter: blur(5px); /* efecto moderno */
     color: white;
     z-index: 1000;
-    padding: 10px 0; /* 🔥 menos alto */
+    padding: 30px 0; /* 🔥 menos alto */
 }
 
 /* CONTENEDOR */
@@ -27,14 +27,14 @@ header .contenedor {
 
 /* LOGO */
 header h1 {
-    font-size: 22px; /* 🔥 más pequeño */
+    font-size: 40px; /* 🔥 más pequeño */
     margin: 0;
 }
 
 /* MENU */
 nav a {
     margin: 0 10px;
-    font-size: 14px;
+    font-size: 24px;
     color: white;
     text-decoration: none;
     transition: 0.3s;
@@ -425,9 +425,60 @@ button.carrusel-control.next { right: 5px; }
 
 /* Responsive para celulares */
 @media (max-width: 768px) {
-    .hero-section {
+    .banner {
+        height: 60vh; /* Reduce la altura para que se vea mejor el contenido */
         padding: 20px;
-        text-align: center;
+    }
+
+    .contenido-banner h2 {
+        font-size: 1.8rem; /* Letra más grande y legible */
+        line-height: 1.2;
+    }
+
+    .contenido-banner p {
+        font-size: 1rem;
+    }
+
+    /* 2. Ajustar el Header y Menú */
+    header .contenedor {
+        flex-direction: column; /* Apila el logo y el menú uno sobre otro */
+        padding: 10px;
+    }
+
+    nav {
+        margin-top: 10px;
+        display: flex;
+        gap: 15px; /* Espacio entre los enlaces */
+        justify-content: center;
+        width: 100%;
+    }
+
+    /* 3. Ajustar la Tienda (Grilla de productos) */
+    .productos {
+        display: grid;
+        grid-template-columns: 1fr; /* Un solo producto por fila para que no se vean diminutos */
+        gap: 20px;
+        padding: 10px;
+    }
+
+    /* 4. Ajustar el Carrusel de Fotos */
+    .slide-foto {
+        min-width: 100%; /* Que la foto ocupe todo el ancho */
+        height: 250px; /* Altura fija para que no sea gigante */
+        object-fit: cover; /* Recorta la foto para que llene el espacio sin deformarse */
+    }
+
+    /* 5. Ajustar los Formularios de Facturación */
+    .facturacion-grid {
+        display: flex;
+        flex-direction: column; /* Los inputs uno debajo de otro */
+        gap: 10px;
+    }
+
+    .carrito-box {
+        width: 95%; /* Que ocupe casi todo el ancho de la pantalla */
+        margin: 10px auto;
+        padding: 15px;
     }
     .productos {
         display: flex; /* Cambiado de grid para mejor control en móvil */
@@ -464,5 +515,51 @@ button.carrusel-control.next { right: 5px; }
     /* Ajusta el tamaño de la fuente para que sea legible */
     h1 {
         font-size: 1.8rem;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+
+    .logo img {
+        width: 50px; /* Tamaño moderado para que no sature */
+        height: auto;
+    }
+
+    .logo h1 {
+        font-size: 1.6rem;
+        margin-left: 8px;
+    }
+
+    /* 2. Banner: El truco para que NO se vea cortado feo */
+    .banner {
+        height: 70vh; /* Que ocupe el 70% de la pantalla del celular */
+        background-size: cover; /* Vuelve a llenar todo el espacio */
+        background-position: center center; /* Centra el "corazón" de la foto */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    /* 3. Contenedor del texto: Para que sea legible sobre la foto */
+    .contenido-banner {
+        width: 90%;
+        background: rgba(0, 0, 0, 0.5); /* Sombreado oscuro para resaltar las letras blancas */
+        padding: 20px 10px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .contenido-banner h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .contenido-banner p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
     }
 }
