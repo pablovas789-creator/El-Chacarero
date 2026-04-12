@@ -2,7 +2,6 @@ body {
     font-family: Arial;
     margin: 0;
     background: #f5f5f5;
-    padding-top: 45px;
 }
 
 header {
@@ -39,6 +38,7 @@ nav a {
     color: white;
     text-decoration: none;
     transition: 0.3s;
+    font-weight: 600;
 }
 
 nav a:hover {
@@ -48,10 +48,15 @@ nav a:hover {
 /* BANNER */
 .banner {
     position: relative;
-    height: 400px;
+    height: 650px; /* 🔥 Le subí un poquito la altura para que se vea más imponente, puedes dejarlo en 400 si prefieres */
+    
+    /* 🔥 EL TRUCO PARA ROMPER EL CONTENEDOR Y OCUPAR TODA LA PANTALLA */
+    width: 100vw; 
+    margin-left: calc(-50vw + 50%); 
+
     background: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0') center/cover no-repeat;
     
-    /* 🔥 EFECTO PARALLAX */
+    /* EFECTO PARALLAX */
     background-attachment: fixed;
 
     display: flex;
@@ -66,8 +71,7 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-
-    background: rgba(0, 0, 0, 0.5); /* ajusta oscuridad aquí */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
 }
 
 /* CONTENIDO ENCIMA DE LA SOMBRA */
@@ -266,31 +270,6 @@ section {
     border-radius: 5px;
 }
 
-/* RESPONSIVE 📱 */
-@media(max-width:600px){
-    .productos {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-@media(max-width:768px){
-    .banner {
-        background-attachment: scroll;
-    }
-}
-
-@media(max-width:600px){
-    .productos {
-        flex-direction: column;
-        align-items: center;
-    }
-    .producto {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
 .facturacion-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* Dos columnas */
@@ -314,9 +293,157 @@ section {
     transition: all 0.3s ease;
 }
 
-/* En móviles, que los inputs ocupen todo el ancho */
+.seccion-pagina {
+    min-height: 80vh;
+    padding-top: 80px; /* Para que el header fixed no tape el contenido */
+}
+
+/* El banner necesita seguir siendo flex cuando se muestre */
+#inicio.seccion-pagina {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0;
+}
+
+.seccion-carrusel-fotos {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.carrusel-wrapper-fotos {
+    position: relative;
+    max-width: 1100px; /* 🔥 Aumentamos de 900px a 1100px (o 1200px si lo quieres enorme) */
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.carrusel-container-fotos {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.slide-foto {
+    min-width: 100%;
+    height: 650px; 
+    object-fit: contain; 
+    display: block;
+    background-color: #2f2f2f; 
+}
+
+.carrusel-control-fotos {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 0, 0, 0.8); /* Rojo oscuro del header */
+    color: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 50%;
+    z-index: 10;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel-control-fotos:hover {
+    background: #ffd700; /* Dorado */
+    color: black;
+}
+
+.carrusel-control-fotos.prev { left: 15px; }
+.carrusel-control-fotos.next { right: 15px; }
+
+
+.carrusel-wrapper {
+    position: relative;
+    max-width: 1050px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 50px; 
+}
+
+.carrusel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px; 
+    align-items: stretch !important; /* 🔥 Estira todas las tarjetas al alto de la más grande */
+}
+
+/* OBLIGA A QUE LAS TARJETAS SEAN CHIQUITAS Y DEL MISMO ALTO */
+.carrusel-container .producto {
+    width: 250px !important; 
+    min-width: 250px !important;
+    max-width: 250px !important;
+    height: auto !important; /* Permite que el stretch funcione */
+    flex-shrink: 0;
+    margin: 0; 
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* 🔥 EL TRUCO DEL RESORTE */
+.carrusel-container .producto h3 {
+    flex-grow: 1; /* Ocupa todo el espacio vacío disponible */
+    display: block; /* Quitamos el flex anterior para que el texto suba */
+}
+
+/* FLECHAS REDONDAS */
+button.carrusel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(139, 0, 0, 0.9) !important; 
+    color: white !important;
+    border: none !important;
+    width: 45px !important; 
+    height: 45px !important;
+    border-radius: 50% !important; 
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+button.carrusel-control:hover {
+    background: #ffd700 !important; 
+    color: black !important;
+}
+
+button.carrusel-control.prev { left: 5px; }
+button.carrusel-control.next { right: 5px; }
+
+/* Responsive para celulares */
 @media (max-width: 600px) {
+    .productos {
+        display: flex; /* Cambiado de grid para mejor control en móvil */
+        flex-direction: column;
+        align-items: center;
+    }
+    .producto {
+        width: 100%;
+        max-width: 300px;
+    }
+    .slide-foto {
+        height: 300px;
+    }
     .facturacion-grid {
         grid-template-columns: 1fr;
+    }
+    #carrito input {
+        width: 100%;
+    }
+    .slide-foto {
+        height: 400px; /* 🔥 Aumentamos de 300px a 400px para móviles */
     }
 }
