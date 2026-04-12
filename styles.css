@@ -562,4 +562,53 @@ button.carrusel-control.next { right: 5px; }
         font-size: 0.9rem;
         margin-bottom: 15px;
     }
+
+    .contenedor-tienda {
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtros-container {
+        display: flex;
+        flex-direction: column; /* Apila buscador y select */
+        gap: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .filtros-container input, 
+    .filtros-container select {
+        width: 90%; /* Casi todo el ancho */
+        margin: 0 auto;
+        padding: 12px; /* Más fáciles de tocar con el dedo */
+        font-size: 16px; /* Evita que el iPhone haga zoom automático */
+        border: 1px solid #ccc;
+        border-radius: 8px;
+    }
+
+    /* 2. Grilla de 2 productos por fila */
+    .productos {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Fuerza las 2 columnas */
+        gap: 10px; /* Espacio pequeño entre productos */
+        padding: 10px;
+    }
+
+    .producto-card {
+        width: 100% !important; /* Que se ajusten a su columna */
+        margin: 0;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Ajustar imágenes y textos de productos para que quepan en 2 columnas */
+    .producto-card img {
+        height: 120px; /* Reduce un poco la imagen para que quepa bien el texto */
+        object-fit: contain;
+    }
+
+    .producto-card h3 {
+        font-size: 0.9rem; /* Texto un poco más pequeño para que no se desborde */
+    }
 }
