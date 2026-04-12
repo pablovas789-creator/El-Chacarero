@@ -526,6 +526,7 @@ button.carrusel-control.next { right: 5px; }
         color: #333 !important;
         border: 1px solid #ddd !important;
         border-radius: 8px;
+        appearance: none;
         -webkit-appearance: none; /* Quita estilos por defecto de iOS */
     }
 
