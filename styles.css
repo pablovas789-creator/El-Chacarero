@@ -493,11 +493,11 @@ button.carrusel-control.next { right: 5px; }
         margin-bottom: 12px;
     }
 
-    /* --- 3. SECCIÓN CATÁLOGO / TIENDA (Solución al solapamiento) --- */
+    /* --- 3. SECCIÓN CATÁLOGO / TIENDA --- */
     #catalogo {
         display: block !important;
         padding-top: 180px !important; /* Espacio extra para bajar todo el contenido */
-        background-color: #fff;
+        background-color: #f5f5f5; /* Mantiene el color de fondo general */
     }
 
     .contenedor-tienda {
@@ -530,42 +530,84 @@ button.carrusel-control.next { right: 5px; }
         -webkit-appearance: none; /* Quita estilos por defecto de iOS */
     }
 
-    /* --- 5. PRODUCTOS (GRILLA DE 2) --- */
+    /* --- 5. PRODUCTOS (GRILLA DE 2 Y DESCRIPCIONES) --- */
     .productos {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-        padding: 10px 5px;
+        gap: 15px !important;
+        padding: 10px;
+        overflow: hidden; 
     }
 
-    .producto-card {
+    .producto {
         width: 100% !important;
         margin: 0 !important;
-        padding: 8px;
+        background: #fff;
+        border-radius: 8px;
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        background: #fff;
-        border-radius: 8px;
+        
+        /* Arreglo de capas para poder tocar la columna izquierda */
+        position: relative; 
+        z-index: 1; 
     }
 
-    .producto-card img {
-        height: 110px; /* Ajustado para 2 columnas */
-        object-fit: contain;
-        width: 100%;
+    /* 🔥 LA SOLUCIÓN DEL ESPACIO BLANCO: Ajustamos el contenedor, no solo la imagen */
+    .imagen-contenedor {
+        height: 160px !important; /* Altura ideal para móviles */
+        width: 100% !important;
+        position: relative;
     }
 
-    .producto-card h3 {
-        font-size: 0.8rem;
-        line-height: 1.1;
-        margin: 8px 0;
-        min-height: 2.2em; /* Mantiene alineación si el nombre es corto */
+    .producto img {
+        height: 100% !important; /* Llena exactamente los 160px del contenedor */
+        width: 100% !important;
+        object-fit: contain !important;
+        background-color: #f9f9f9;
     }
 
-    .producto-card .precio {
-        font-weight: bold;
-        font-size: 0.9rem;
+    /* Textos y espacios para que todo cuadre limpio */
+    .producto h3 {
+        font-size: 0.85rem !important;
+        line-height: 1.2;
+        padding: 10px 10px 5px 10px !important; /* Devolvemos el padding original ajustado */
+        margin: 0;
+        min-height: 45px; 
+        align-items: flex-start !important; /* Evita que el texto flote raro */
+    }
+
+    .producto p {
+        font-size: 0.9rem !important;
+        padding: 0 10px 10px 10px !important;
+    }
+
+    .producto button {
+        padding: 12px !important;
+        font-size: 0.9rem !important;
+        margin-top: auto; /* Empuja el botón al fondo siempre */
+    }
+
+    /* EL TEXTO DESPLEGABLE NEGRO EN MÓVIL */
+    .descripcion {
+        font-size: 10px !important; /* Un pelín más pequeño para ayudar */
+        line-height: 1.2 !important;
+        padding: 10px !important;
+        height: 100% !important; /* Cubre exactamente la foto */
+        
+        /* LA CLAVE PARA QUE NO SE CORTE: */
+        justify-content: flex-start !important; /* Empieza arriba, no al centro */
+        
+        /* LA CLAVE PARA EL IPHONE: */
+        overflow-y: auto !important; /* Activa la barra de desplazamiento */
+        -webkit-overflow-scrolling: touch !important; /* Scroll suave para iOS */
+        pointer-events: auto !important; /* Deja interactuar con el dedo */
+    }
+
+    .producto:active .descripcion, 
+    .producto:hover .descripcion {
+        opacity: 1;
+        z-index: 15 !important;
     }
 
     /* --- 6. CARRUSEL Y OTROS --- */
