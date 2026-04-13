@@ -80,7 +80,7 @@ const productos = [
         descripcion: "Nivel de picor: 🔥🔥🔥🔥🔥🔥\nSalsa de ají Habanero, nuestra salsa mas picante. \nExtra Hot level: 🔥🔥🔥🔥🔥🔥\nHabanero Hot Sauce, our spiciest sauce"
     },
     {
-        id: 12,
+        id: 11,
         nombre: "AJÍ SECO/CHILLI FLAKES\n100g",
         precio: 4,
         categoria: "aji",
@@ -88,7 +88,7 @@ const productos = [
         descripcion: "Nivel de picor: 🔥🔥🔥\nAjí deshidratado en hojuelas.\n Medium level: 🔥🔥🔥\nChilli Flakes"
     },
     {
-        id: 11,
+        id: 12,
         nombre: "AJÍ SECO/CHILLI FLAKES\n30g",
         precio: 2.25,
         categoria: "aji",
@@ -120,7 +120,7 @@ const productos = [
         descripcion: "Nivel de picor: 🔥🔥🔥🔥🔥🔥\n.Jalapeños encurtidos picantes\nExtra Hot level: 🔥🔥🔥🔥🔥🔥\nSpicy pickled jalapeños"
     },
     {
-        id: 15,
+        id: 16,
         nombre: "ENCURTIDO DE AJI AGRIDULCE JALAPEÑO EN VINAGRE/Sweet and Sour Jalapeño Peppers in Vinegar\n500g",
         precio: 8,
         categoria: "aji",
@@ -128,7 +128,7 @@ const productos = [
         descripcion: "Nivel de picor: 🔥🔥🔥🔥🔥🔥\nJalapeños encurtidos agridulces.\nExtra Hot level: 🔥🔥🔥🔥🔥🔥\nSweet and sour pickled jalapeños."
     },
     {
-        id: 16,
+        id: 17,
         nombre: "MIX QUESOS MADUROS/MIX OF MATURE CHEESES \n400g",
         precio: 12.5,
         categoria: "queso",
@@ -136,7 +136,7 @@ const productos = [
         descripcion: "Quesos maduros artesanales\nConservar refrigerado\nArtisan mature cheeses\nKeep refrigerated.."
     },
     {
-        id: 16,
+        id: 18,
         nombre: "MIX QUESOS MADUROS/MIX OF MATURE CHEESES \n200g",
         precio: 6.75,
         categoria: "queso",
@@ -144,116 +144,132 @@ const productos = [
         descripcion: "Quesos maduros artesanales\nConservar refrigerado\nArtisan mature cheeses\nKeep refrigerated.."
     },
     {
-        id: 17,
+        id: 19,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST\n 1kg",
         precio: 18,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grande_medio.jpeg",
-        descripcion: "Café origen lojano de altura"
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 17,
+        id: 20,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST\n 400g",
         precio: 10,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grande_medio.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 18,
+        id: 21,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST\n 200g",
         precio: 5,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grande_medio.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 19,
+        id: 22,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST \n100g",
         precio: 2.5,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grande_medio.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 23,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO/LOJANO COFFEE DOÑA DORITA ARABIC VARIETY DARK ROAST\n 1kg",
         precio: 18,
         categoria: "cafe",
         img: "imagenes/productos/cafe_pequeño_oscuro.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 24,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO/LOJANO COFFEE DOÑA DORITA ARABIC VARIETY DARK ROAST\n 400g",
         precio: 10,
         categoria: "cafe",
         img: "imagenes/productos/cafe_pequeño_oscuro.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 25,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO/LOJANO COFFEE DOÑA DORITA ARABIC VARIETY DARK ROAST\n 200g",
         precio: 5,
         categoria: "cafe",
         img: "imagenes/productos/cafe_pequeño_oscuro.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 26,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO/LOJANO COFFEE DOÑA DORITA ARABIC VARIETY DARK ROAST\n 100g",
         precio: 2.5,
         categoria: "cafe",
         img: "imagenes/productos/cafe_pequeño_oscuro.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 27,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO EN GRANO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST BEANS\n 1kg",
         precio: 18,
         categoria: "cafe",
         img: "",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 28,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO EN GRANO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST BEANS\n 400kg",
         precio: 10,
         categoria: "cafe",
         img: "",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 29,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE MEDIO EN GRANO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY MEDIUM ROAST BEANS\n 200g",
         precio: 5,
         categoria: "cafe",
         img: "",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 30,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO EN GRANO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY DARK ROAST BEANS\n 1kg",
         precio: 18,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grano.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 31,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO EN GRANO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY DARK ROAST BEANS\n 400kg",
         precio: 10,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grano.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
     },
     {
-        id: 20,
+        id: 32,
         nombre: "CAFÉ LOJANO DOÑA DORITA VARIEDAD ARABIGO TUESTE OSCURO EN GRANO/LOJANO COFFEE DOÑA DORITA ARABICA VARIETY DARK ROAST BEANS\n 200g",
         precio: 5,
         categoria: "cafe",
         img: "imagenes/productos/cafe_grano.jpeg",
-        descripcion: "Café origen lojano de altura."
+        descripcion: "Café origen lojano de altura.\nHigh-altitude coffee from Loja."
+    },
+    {
+        id: 33,
+        nombre: "QUESO AMASADO/KNEADED CHEESE\n400g",
+        precio: 5,
+        categoria: "queso",
+        img: "imagenes/productos/queso_amasado.jpeg",
+        descripcion: "Queso amasado campesino.\nFarmer's homemade cheese."
+    },
+    {
+        id: 34,
+        nombre: "QUESO AMASADO/KNEADED CHEESE\n 200g",
+        precio: 5,
+        categoria: "queso",
+        img: "imagenes/productos/queso_amasado.jpeg",
+        descripcion: "Queso amasado campesino.\nFarmer's homemade cheese."
     }
 ];
 
@@ -339,7 +355,6 @@ function actualizarCarrito() {
 }
 
 function eliminarDelCarrito(index) {
-    // Si hay más de uno, restamos cantidad, si hay solo uno, eliminamos el item
     if (carrito[index].cantidad > 1) {
         carrito[index].cantidad--;
     } else {
@@ -554,7 +569,6 @@ function moverCarrusel(id, direccion) {
     contenedor.style.transform = `translateX(${desplazamiento}px)`;
 }
 
-// Ejecutar la carga de productos inmediatamente al cargar la página
 cargarCarruselesInicio();
 
 mostrarProductos(productos);
