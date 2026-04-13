@@ -423,6 +423,56 @@ button.carrusel-control:hover {
 button.carrusel-control.prev { left: 5px; }
 button.carrusel-control.next { right: 5px; }
 
+.contacto-seccion-final {
+    padding: 40px 0;
+    background: #fff; /* Fondo blanco para que resalte del gris */
+    text-align: center;
+}
+
+.aviso-pedidos {
+    background: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 8px;
+    border: 1px solid #ffeeba;
+}
+
+.redes-contenedor {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 30px 0;
+}
+
+.red-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.img-red {
+    width: 60px; /* Tamaño controlado de la imagen */
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.red-link:hover {
+    transform: scale(1.1); /* Efecto de agrandado al pasar el mouse */
+}
+
+.separador-discreto {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin-bottom: 30px;
+}
+
 /* Responsive para celulares */
 @media (max-width: 768px) {
     /* --- 1. HEADER Y LOGO (Optimizado para ahorrar espacio) --- */
@@ -554,33 +604,29 @@ button.carrusel-control.next { right: 5px; }
         display: flex;
         flex-direction: column;
         
-        /* Arreglo de capas para poder tocar la columna izquierda */
         position: relative; 
         z-index: 1; 
     }
 
-    /* 🔥 LA SOLUCIÓN DEL ESPACIO BLANCO: Ajustamos el contenedor, no solo la imagen */
     .imagen-contenedor {
-        height: 160px !important; /* Altura ideal para móviles */
+        height: 160px !important; 
         width: 100% !important;
         position: relative;
     }
 
     .producto img {
-        height: 100% !important; /* Llena exactamente los 160px del contenedor */
+        height: 100% !important; 
         width: 100% !important;
         object-fit: contain !important;
         background-color: #f9f9f9;
     }
-
-    /* Textos y espacios para que todo cuadre limpio */
     .producto h3 {
         font-size: 0.85rem !important;
         line-height: 1.2;
-        padding: 10px 10px 5px 10px !important; /* Devolvemos el padding original ajustado */
+        padding: 10px 10px 5px 10px !important;
         margin: 0;
         min-height: 45px; 
-        align-items: flex-start !important; /* Evita que el texto flote raro */
+        align-items: flex-start !important; 
     }
 
     .producto p {
@@ -591,30 +637,24 @@ button.carrusel-control.next { right: 5px; }
     .producto button {
         padding: 12px !important;
         font-size: 0.9rem !important;
-        margin-top: auto; /* Empuja el botón al fondo siempre */
+        margin-top: auto;
     }
 
-    /* EL TEXTO DESPLEGABLE NEGRO EN MÓVIL */
     .descripcion {
-        font-size: 10px !important; /* Un pelín más pequeño para ayudar */
+        font-size: 10px !important;
         line-height: 1.2 !important;
         padding: 10px !important;
-        height: 100% !important; /* Cubre exactamente la foto */
+        height: 100% !important; 
+        justify-content: flex-start !important; 
         
-        /* LA CLAVE PARA QUE NO SE CORTE: */
-        justify-content: flex-start !important; /* Empieza arriba, no al centro */
-        
-        /* LA CLAVE PARA EL IPHONE: */
-        overflow-y: auto !important; /* Activa la barra de desplazamiento */
-        -webkit-overflow-scrolling: touch !important; /* Scroll suave para iOS */
-        pointer-events: auto !important; /* Deja interactuar con el dedo */
+        overflow-y: auto !important; 
+        -webkit-overflow-scrolling: touch !important;
+        pointer-events: auto !important; 
 
-        /* ESTO ASEGURA QUE INICIE OCULTO EN MÓVIL HASTA TOCAR */
         opacity: 0;
         transition: opacity 0.3s ease;
     }
 
-    /* 🔥 ESTA ES LA CLASE NUEVA QUE ACTIVA EL JS AL TOCAR */
     .imagen-contenedor.mostrar-desc .descripcion {
         opacity: 1 !important;
         z-index: 15 !important;
